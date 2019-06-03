@@ -1,0 +1,45 @@
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.4.1'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+rootProject.buildDir = '../build'
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+}
+subprojects {
+    project.evaluationDependsOn(':app')
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+
+subprojects {
+    apply plugin: 'maven'
+    uploadArchives {
+        repositories {
+            mavenDeployer {
+                repository(url: uri('../repo'))
+                //repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                //    authentication(userName: ossrhUsername, password: ossrhPassword)
+                //}
+            }
+        }
+    }
+}
