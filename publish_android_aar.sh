@@ -12,11 +12,6 @@ flutter clean
 echo "Get packages"
 flutter packages get
 
-echo "Build release AOT"
-flutter build aot --release  --output-dir=build/flutteroutput/aot
-echo "Build release Bundle"
-flutter build bundle --precompiled  --asset-dir=build/flutteroutput/flutter_assets
-
 # 复制插件生成的GeneratedPluginRegistrant.java到我们需要打包的module
 echo 'Copy GeneratedPluginRegistrant.java to module'
 mkdir -p android/${myFlutterModule}/src/main/java/io/flutter/plugins && cp android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java "$_"
