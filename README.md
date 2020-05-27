@@ -1,4 +1,4 @@
-# 在Android项目中加入Flutter，部分功能使用Flutter混合开发方案
+# 把 Flutter 工程打包成 aar，引入到现有的 Android 项目中
 https://www.jianshu.com/p/a71ec6471a06
 我们在尝试Flutter的时候，其实可以在我们现成的项目中加入Flutter，然后改造我们部分不是特别重要的的功能，避免引发较大的风险，也可以把新技术引入进来。在React Native的时候，我们也尝试做过类似的方案，后来基于稳定性和维护成本，最终换回了原生开发。
 
